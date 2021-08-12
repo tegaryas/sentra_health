@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sentra_health/constants/styles.dart';
 import 'package:sentra_health/features/authentication/presentation/signup_screen.dart';
+import 'package:sentra_health/features/home/presentation/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -127,7 +128,14 @@ class LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomeScreen(),
+          ),
+        );
+      },
       child: Container(
         alignment: Alignment.center,
         margin: EdgeInsets.symmetric(
