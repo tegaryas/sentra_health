@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sentra_health/constants/styles.dart';
 import 'package:sentra_health/features/home/presentation/home_screen.dart';
-import 'package:sentra_health/location/presentation/location_screen.dart';
-import 'package:sentra_health/notification/presentation/notification_screen.dart';
-import 'package:sentra_health/profile/presentation/profile_screen.dart';
+import 'package:sentra_health/features/location/presentation/location_screen.dart';
+import 'package:sentra_health/features/notification/presentation/notification_screen.dart';
+import 'package:sentra_health/features/profile/presentation/profile_screen.dart';
 
 class NavigationMenu extends StatefulWidget {
   const NavigationMenu({Key? key}) : super(key: key);
