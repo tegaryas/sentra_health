@@ -113,26 +113,11 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 20,
-                ),
-                child: Row(
-                  children: [
-                    Text(
-                      'Layanan Cepat',
-                      style: GoogleFonts.montserrat(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              _headerKategori('Layanan Cepat'),
               Container(
                 height: 120,
                 child: GridView.count(
+                  physics: NeverScrollableScrollPhysics(),
                   crossAxisCount: 3,
                   padding: EdgeInsets.symmetric(
                     horizontal: 20,
@@ -155,10 +140,128 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(
                 height: 20,
-              )
+              ),
+              _headerKategori('Artikel Terkini'),
+              Container(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                        width: 180,
+                        margin: EdgeInsets.only(
+                          right: 20,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: 100,
+                              width: 180,
+                              decoration: BoxDecoration(
+                                  color: Palletes.PrimaryColor,
+                                  borderRadius: BorderRadius.circular(10)),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              'Benar kah meminum air kelapa dapat menyebabakan ginjal?',
+                              style: TextStyles.boldFontStyle,
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 5,
+                              ),
+                              decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Text(
+                                'Ginjal',
+                                style: TextStyles.titleNormalFontStyle,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        width: 180,
+                        margin: EdgeInsets.only(
+                          right: 20,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: 100,
+                              width: 180,
+                              decoration: BoxDecoration(
+                                  color: Palletes.PrimaryColor,
+                                  borderRadius: BorderRadius.circular(10)),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              'Benar kah meminum air kelapa dapat menyebabakan ginjal?',
+                              style: TextStyles.boldFontStyle,
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 5,
+                              ),
+                              decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Text(
+                                'Ginjal',
+                                style: TextStyles.titleNormalFontStyle,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 50,
+              ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  _headerKategori(String title) {
+    return Container(
+      margin: EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 20,
+      ),
+      child: Row(
+        children: [
+          Text(
+            title,
+            style: GoogleFonts.montserrat(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
       ),
     );
   }

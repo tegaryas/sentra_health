@@ -6,8 +6,15 @@ class Palletes {
 }
 
 class TextStyles {
-  static final normalFontStyle = GoogleFonts.montserrat(
-    fontSize: 16,
+  static final titleNormalFontStyle = GoogleFonts.montserrat(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: Colors.white,
+  );
+
+  static final boldFontStyle = GoogleFonts.montserrat(
+    fontSize: 14,
     fontWeight: FontWeight.w600,
+    color: Colors.white,
   );
 }
