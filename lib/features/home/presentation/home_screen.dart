@@ -58,22 +58,8 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               _searchBar(),
-              Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 20,
-                ),
-                child: Row(
-                  children: [
-                    Text(
-                      'Data anda',
-                      style: GoogleFonts.montserrat(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ],
-                ),
+              SizedBox(
+                height: 20,
               ),
               Container(
                 margin: EdgeInsets.symmetric(
@@ -148,7 +134,6 @@ class HomeScreen extends StatelessWidget {
                 height: 120,
                 child: GridView.count(
                   crossAxisCount: 3,
-                  crossAxisSpacing: 10,
                   padding: EdgeInsets.symmetric(
                     horizontal: 20,
                   ),
@@ -182,7 +167,7 @@ class HomeScreen extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(
         horizontal: 20,
-        vertical: 10,
+        vertical: 5,
       ),
       padding: EdgeInsets.symmetric(
         horizontal: 10,
@@ -203,7 +188,7 @@ class HomeScreen extends StatelessWidget {
             width: 10,
           ),
           Text(
-            'Masukkan hal yang ingin anda ketahui',
+            'Apa yang ingin anda cari?',
             style: GoogleFonts.montserrat(
               fontSize: 14,
               fontWeight: FontWeight.w500,
@@ -227,42 +212,46 @@ class ListLayanan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 120,
-      padding: EdgeInsets.all(
-        10,
-      ),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            offset: Offset(5, 5),
-            blurRadius: 5,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          padding: EdgeInsets.all(
+            20,
           ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            imageUrl,
-            scale: 15.0,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                offset: Offset(2, 2),
+                blurRadius: 5,
+              ),
+            ],
           ),
-          SizedBox(
-            height: 10,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                imageUrl,
+                scale: 15.0,
+              ),
+            ],
           ),
-          Text(
-            titleLayanan,
-            style: GoogleFonts.montserrat(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-            ),
-            textAlign: TextAlign.center,
+        ),
+        SizedBox(
+          height: 15,
+        ),
+        Text(
+          titleLayanan,
+          style: GoogleFonts.montserrat(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
           ),
-        ],
-      ),
+          textAlign: TextAlign.center,
+        ),
+      ],
     );
   }
 }

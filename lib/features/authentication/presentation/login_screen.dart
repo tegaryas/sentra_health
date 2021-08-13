@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sentra_health/constants/styles.dart';
 import 'package:sentra_health/features/authentication/presentation/signup_screen.dart';
 import 'package:sentra_health/features/home/presentation/home_screen.dart';
+import 'package:sentra_health/nav_menu.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -132,7 +133,7 @@ class LoginButton extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => HomeScreen(),
+            builder: (context) => NavigationMenu(),
           ),
         );
       },
