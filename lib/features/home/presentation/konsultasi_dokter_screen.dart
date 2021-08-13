@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sentra_health/constants/styles.dart';
+import 'package:sentra_health/features/home/presentation/detail_dokter_screen.dart';
 
 class KonsultasiDokterScreen extends StatefulWidget {
   const KonsultasiDokterScreen({Key? key}) : super(key: key);
@@ -38,12 +38,20 @@ class _KonsultasiDokterScreenState extends State<KonsultasiDokterScreen> {
         ),
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
             _searchBar(),
-            ListDokter(),
-            ListDokter(),
-            ListDokter(),
+            ListDokter(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailDokterScreen(),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
@@ -114,15 +122,18 @@ class _KonsultasiDokterScreenState extends State<KonsultasiDokterScreen> {
 }
 
 class ListDokter extends StatelessWidget {
+  final VoidCallback onTap;
   const ListDokter({
     Key? key,
+    required this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
+        color: Colors.transparent,
         margin: EdgeInsets.symmetric(
           horizontal: 20,
           vertical: 20,

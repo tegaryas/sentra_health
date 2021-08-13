@@ -24,13 +24,37 @@ class DokterTextStyles {
     fontWeight: FontWeight.w600,
   );
 
+  static final namaDokterDetailFontStyle = GoogleFonts.montserrat(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    color: Colors.white,
+  );
+
   static final jabatanDokterFontStyle = GoogleFonts.montserrat(
+    fontSize: 14,
+    fontWeight: FontWeight.w300,
+  );
+
+  static final jabatanDokterDetailFontStyle = GoogleFonts.montserrat(
     fontSize: 13,
     fontWeight: FontWeight.w300,
+    color: Colors.white,
   );
 
   static final ratingDokterFontStyle = GoogleFonts.montserrat(
     fontSize: 13,
     fontWeight: FontWeight.w300,
+  );
+
+  static final aboutDokterFontStyle = GoogleFonts.montserrat(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    color: Palletes.PrimaryColor,
+  );
+
+  static final detailDokterFontStyle = GoogleFonts.montserrat(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    height: 1.5,
   );
 }

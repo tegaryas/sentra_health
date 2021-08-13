@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
           statusBarColor: Colors.white, // Color for Android
           systemNavigationBarColor: Colors.white,
           statusBarBrightness:
-              Brightness.dark // Dark == white status bar -- for IOS.
+              Brightness.light // Dark == white status bar -- for IOS.
           ),
     );
     return MaterialApp(

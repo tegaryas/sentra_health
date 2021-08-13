@@ -58,10 +58,6 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              _searchBar(),
-              SizedBox(
-                height: 20,
-              ),
               Container(
                 margin: EdgeInsets.symmetric(
                   horizontal: 20,
