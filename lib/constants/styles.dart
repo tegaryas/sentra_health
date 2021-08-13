@@ -15,6 +15,22 @@ class TextStyles {
   static final boldFontStyle = GoogleFonts.montserrat(
     fontSize: 14,
     fontWeight: FontWeight.w600,
-    color: Colors.white,
+  );
+}
+
+class DokterTextStyles {
+  static final namaDokterFontStyle = GoogleFonts.montserrat(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
+
+  static final jabatanDokterFontStyle = GoogleFonts.montserrat(
+    fontSize: 13,
+    fontWeight: FontWeight.w300,
+  );
+
+  static final ratingDokterFontStyle = GoogleFonts.montserrat(
+    fontSize: 13,
+    fontWeight: FontWeight.w300,
   );
 }

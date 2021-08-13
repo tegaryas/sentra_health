@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sentra_health/constants/styles.dart';
+import 'package:sentra_health/features/home/presentation/konsultasi_dokter_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -81,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         ParameterTubuh(
                           indicator: 'Waktu Tidur',
-                          iconIndicator: CupertinoIcons.alarm,
+                          iconIndicator: CupertinoIcons.alarm_fill,
                           angkaIndicator: 2,
                           satuanIndicator: 'Jam',
                         )
@@ -126,20 +127,30 @@ class HomeScreen extends StatelessWidget {
                     ListLayanan(
                       titleLayanan: 'Konsultasi Dokter',
                       imageUrl: 'assets/icons/doctor.png',
+                      onPress: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => KonsultasiDokterScreen(),
+                          ),
+                        );
+                      },
                     ),
                     ListLayanan(
                       titleLayanan: 'Rumah Sakit & Klinik',
                       imageUrl: 'assets/icons/ambulance.png',
+                      onPress: () {},
                     ),
                     ListLayanan(
                       titleLayanan: 'Virtual Health Assist',
                       imageUrl: 'assets/icons/emergency-call.png',
+                      onPress: () {},
                     ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               _headerKategori('Artikel Terkini'),
               Container(
@@ -305,56 +316,63 @@ class HomeScreen extends StatelessWidget {
 }
 
 class ListLayanan extends StatelessWidget {
+  final VoidCallback onPress;
   final String titleLayanan;
   final String imageUrl;
   const ListLayanan({
     Key? key,
     required this.titleLayanan,
     required this.imageUrl,
+    required this.onPress,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          padding: EdgeInsets.all(
-            20,
-          ),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                offset: Offset(2, 2),
-                blurRadius: 5,
+    return GestureDetector(
+      onTap: onPress,
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              padding: EdgeInsets.all(
+                20,
               ),
-            ],
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                imageUrl,
-                scale: 15.0,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    offset: Offset(2, 2),
+                    blurRadius: 5,
+                  ),
+                ],
               ),
-            ],
-          ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    imageUrl,
+                    scale: 15.0,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              titleLayanan,
+              style: GoogleFonts.montserrat(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
-        SizedBox(
-          height: 15,
-        ),
-        Text(
-          titleLayanan,
-          style: GoogleFonts.montserrat(
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+      ),
     );
   }
 }

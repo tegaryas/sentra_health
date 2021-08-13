@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sentra_health/constants/styles.dart';
 import 'package:sentra_health/features/home/presentation/home_screen.dart';
@@ -67,7 +66,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.home_filled,
+                          currentTab == 0 ? Icons.home : Icons.home_outlined,
                           color: currentTab == 0
                               ? Palletes.PrimaryColor
                               : Colors.grey.shade400,
@@ -87,7 +86,9 @@ class _NavigationMenuState extends State<NavigationMenu> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.notifications,
+                          currentTab == 1
+                              ? Icons.notifications_active
+                              : Icons.notifications_outlined,
                           color: currentTab == 1
                               ? Palletes.PrimaryColor
                               : Colors.grey.shade400,
@@ -112,7 +113,9 @@ class _NavigationMenuState extends State<NavigationMenu> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.map,
+                          currentTab == 2
+                              ? Icons.map_rounded
+                              : Icons.map_outlined,
                           color: currentTab == 2
                               ? Palletes.PrimaryColor
                               : Colors.grey.shade400,
@@ -132,7 +135,9 @@ class _NavigationMenuState extends State<NavigationMenu> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.person,
+                          currentTab == 3
+                              ? Icons.person
+                              : Icons.person_outlined,
                           color: currentTab == 3
                               ? Palletes.PrimaryColor
                               : Colors.grey.shade400,
