@@ -173,6 +173,7 @@ class _DetailDokterScreenState extends State<DetailDokterScreen> {
                     height: 40,
                   ),
                   GridView.count(
+                    physics: NeverScrollableScrollPhysics(),
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,
                     crossAxisCount: 3,

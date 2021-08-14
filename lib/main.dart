@@ -14,8 +14,9 @@ class MyApp extends StatelessWidget {
       SystemUiOverlayStyle.dark.copyWith(
           statusBarColor: Colors.white, // Color for Android
           systemNavigationBarColor: Colors.white,
-          statusBarBrightness:
-              Brightness.light // Dark == white status bar -- for IOS.
+          statusBarBrightness: Brightness.dark,
+          statusBarIconBrightness:
+              Brightness.dark // Dark == white status bar -- for IOS.
           ),
     );
     return MaterialApp(

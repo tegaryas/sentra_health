@@ -20,26 +20,36 @@ class LoginScreen extends StatelessWidget {
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 100,
-              width: 100,
-              alignment: Alignment.center,
-              color: Colors.amber,
-              child: Text('LOGO'),
+              margin: EdgeInsets.only(left: 20),
+              child: Text(
+                'Selamat Datang 👋',
+                style: GoogleFonts.montserrat(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w600,
+                  color: Palletes.PrimaryColor,
+                ),
+              ),
             ),
             SizedBox(
               height: 10,
             ),
-            Text(
-              'Sentra Health',
-              style: GoogleFonts.montserrat(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
+            Container(
+              margin: EdgeInsets.only(left: 20),
+              child: Text(
+                'Kami senang melihat anda lagi. Anda dapat lanjut login untuk me-manage kesehatan anda ',
+                style: GoogleFonts.montserrat(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.grey,
+                  height: 1.5,
+                ),
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 30,
             ),
             EmailForm(),
             SizedBox(
@@ -76,7 +86,7 @@ class LoginScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SignupScreen(),
+                          builder: (context) => RegisterScreen(),
                         ),
                       );
                     },
@@ -219,6 +229,7 @@ class EmailForm extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
         textAlignVertical: TextAlignVertical.center,
         decoration: InputDecoration(
           border: UnderlineInputBorder(borderSide: BorderSide.none),
