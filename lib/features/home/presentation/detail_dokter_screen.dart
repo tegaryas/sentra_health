@@ -175,6 +175,7 @@ class _DetailDokterScreenState extends State<DetailDokterScreen> {
                         ...List.generate(
                           10,
                           (index) {
+                            // TODO: Disni juga butuh state itu buat atur pemilihan
                             return ListJadwalHari();
                           },
                         )
@@ -194,6 +195,7 @@ class _DetailDokterScreenState extends State<DetailDokterScreen> {
                     crossAxisSpacing: 15,
                     mainAxisSpacing: 15,
                     children: [
+                      // TODO: Butuh dibuat state nya
                       _listJadwalWaktu('09 : 00 AM'),
                       _listJadwalWaktu('10 : 00 AM'),
                       _listJadwalWaktu('11 : 00 AM'),
@@ -286,6 +288,7 @@ class _DetailDokterScreenState extends State<DetailDokterScreen> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
+                // TODO: Month Picker disinui daf tolonng ya
               ),
               SizedBox(
                 height: 10,

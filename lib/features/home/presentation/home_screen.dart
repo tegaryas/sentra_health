@@ -92,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ParameterTubuh(
-                          indicator: 'SpO2',
+                          indicator: 'SpO₂',
                           iconIndicator: Icons.bloodtype,
                           angkaIndicator: 98,
                           satuanIndicator: '%',
