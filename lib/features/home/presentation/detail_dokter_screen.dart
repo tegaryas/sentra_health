@@ -1,7 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 import 'package:sentra_health/constants/styles.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class DetailDokterScreen extends StatefulWidget {
   const DetailDokterScreen({Key? key}) : super(key: key);
@@ -12,7 +16,16 @@ class DetailDokterScreen extends StatefulWidget {
 
 class _DetailDokterScreenState extends State<DetailDokterScreen> {
   @override
+  void initState() {
+    initializeDateFormatting();
+
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
+    String _selectedDate =
+        DateFormat.yMMM('id').format(DateTime.now()).toString();
+
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -151,7 +164,7 @@ class _DetailDokterScreenState extends State<DetailDokterScreen> {
                   SizedBox(
                     height: 30,
                   ),
-                  _titleDetailJadwal('Jadwal'),
+                  _titleDetailJadwal('Jadwal', _selectedDate),
                   SizedBox(
                     height: 15,
                   ),
@@ -232,7 +245,7 @@ class _DetailDokterScreenState extends State<DetailDokterScreen> {
     );
   }
 
-  _titleDetailJadwal(String title) {
+  _titleDetailJadwal(String title, String _selectedDate) {
     return GestureDetector(
       onTap: () => showModalBottomSheet(
         shape: RoundedRectangleBorder(
@@ -244,7 +257,60 @@ class _DetailDokterScreenState extends State<DetailDokterScreen> {
         ),
         context: context,
         builder: (context) => Container(
-          height: 300,
+          padding: EdgeInsets.only(
+            top: 20,
+            bottom: 20,
+            left: 20,
+            right: 20,
+          ),
+          height: 450,
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        color: Palletes.PrimaryColor.withOpacity(0.2),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(Icons.close),
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              GestureDetector(
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                    color: Palletes.PrimaryColor,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Pilih Bulan',
+                      style: GoogleFonts.montserrat(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
       child: Container(
@@ -260,7 +326,7 @@ class _DetailDokterScreenState extends State<DetailDokterScreen> {
             Row(
               children: [
                 Text(
-                  'May 2021',
+                  '$_selectedDate',
                   style: GoogleFonts.montserrat(
                     fontSize: 14,
                     color: Colors.grey,

@@ -7,14 +7,52 @@ class Palletes {
 
 class TextStyles {
   static final titleNormalFontStyle = GoogleFonts.montserrat(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: Colors.white,
+  );
+
+  static final normalFontStyle = GoogleFonts.montserrat(
     fontSize: 14,
     fontWeight: FontWeight.w400,
+    color: Colors.white,
+  );
+
+  static final titleBoldFontStyle = GoogleFonts.montserrat(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
     color: Colors.white,
   );
 
   static final boldFontStyle = GoogleFonts.montserrat(
     fontSize: 14,
     fontWeight: FontWeight.w600,
+    color: Colors.white,
+  );
+
+  static final titleBlackNormalFontStyle = GoogleFonts.montserrat(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+  );
+
+  static final blackNormalFontStyle = GoogleFonts.montserrat(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+  );
+
+  static final titleBlackboldFontStyle = GoogleFonts.montserrat(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
+
+  static final blackBoldFontStyle = GoogleFonts.montserrat(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
+
+  static final ratingFontStyle = GoogleFonts.montserrat(
+    fontSize: 13,
+    fontWeight: FontWeight.w300,
   );
 }
 

@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sentra_health/constants/styles.dart';
 import 'package:sentra_health/features/home/presentation/konsultasi_dokter_screen.dart';
+import 'package:sentra_health/features/home/presentation/virtual_assist_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -111,39 +112,45 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               _headerKategori('Layanan Cepat'),
-              Container(
-                height: 120,
-                child: GridView.count(
-                  physics: NeverScrollableScrollPhysics(),
-                  crossAxisCount: 3,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  children: [
-                    ListLayanan(
-                      titleLayanan: 'Konsultasi Dokter',
-                      imageUrl: 'assets/icons/doctor.png',
-                      onPress: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => KonsultasiDokterScreen(),
-                          ),
-                        );
-                      },
-                    ),
-                    ListLayanan(
-                      titleLayanan: 'Rumah Sakit & Klinik',
-                      imageUrl: 'assets/icons/ambulance.png',
-                      onPress: () {},
-                    ),
-                    ListLayanan(
-                      titleLayanan: 'Virtual Health Assist',
-                      imageUrl: 'assets/icons/emergency-call.png',
-                      onPress: () {},
-                    ),
-                  ],
+              GridView.count(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                crossAxisCount: 3,
+                childAspectRatio: 1 / 1.1,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 20,
                 ),
+                children: [
+                  ListLayanan(
+                    titleLayanan: 'Konsultasi Dokter',
+                    imageUrl: 'assets/icons/doctor.png',
+                    onPress: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => KonsultasiDokterScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  ListLayanan(
+                    titleLayanan: 'Rumah Sakit & Klinik',
+                    imageUrl: 'assets/icons/ambulance.png',
+                    onPress: () {},
+                  ),
+                  ListLayanan(
+                    titleLayanan: 'Virtual Health Assist',
+                    imageUrl: 'assets/icons/emergency-call.png',
+                    onPress: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => VirtualAssistScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
               SizedBox(
                 height: 10,
@@ -177,7 +184,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             Text(
                               'Benar kah meminum air kelapa dapat menyebabakan ginjal?',
-                              style: TextStyles.boldFontStyle,
+                              style: TextStyles.blackBoldFontStyle,
                             ),
                             SizedBox(
                               height: 8,
@@ -192,7 +199,7 @@ class HomeScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10)),
                               child: Text(
                                 'Ginjal',
-                                style: TextStyles.titleNormalFontStyle,
+                                style: TextStyles.normalFontStyle,
                               ),
                             ),
                           ],
@@ -218,7 +225,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             Text(
                               'Benar kah meminum air kelapa dapat menyebabakan ginjal?',
-                              style: TextStyles.boldFontStyle,
+                              style: TextStyles.blackBoldFontStyle,
                             ),
                             SizedBox(
                               height: 8,
@@ -233,7 +240,7 @@ class HomeScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10)),
                               child: Text(
                                 'Ginjal',
-                                style: TextStyles.titleNormalFontStyle,
+                                style: TextStyles.normalFontStyle,
                               ),
                             ),
                           ],
@@ -272,43 +279,6 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-
-  _searchBar() {
-    return Container(
-      margin: EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: 5,
-      ),
-      padding: EdgeInsets.symmetric(
-        horizontal: 10,
-        vertical: 10,
-      ),
-      decoration: BoxDecoration(
-        color: Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Row(
-        children: [
-          Icon(
-            Icons.search,
-            size: 25,
-            color: Palletes.PrimaryColor,
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Text(
-            'Apa yang ingin anda cari?',
-            style: GoogleFonts.montserrat(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              color: Colors.black38,
-            ),
-          )
-        ],
-      ),
-    );
-  }
 }
 
 class ListLayanan extends StatelessWidget {
@@ -337,13 +307,10 @@ class ListLayanan extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black12,
-                    offset: Offset(2, 2),
-                    blurRadius: 5,
-                  ),
-                ],
+                border: Border.all(
+                  width: 2,
+                  color: Colors.grey.shade300,
+                ),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -356,7 +323,7 @@ class ListLayanan extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 15,
+              height: 10,
             ),
             Text(
               titleLayanan,

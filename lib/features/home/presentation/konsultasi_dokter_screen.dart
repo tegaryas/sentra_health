@@ -161,14 +161,14 @@ class ListDokter extends StatelessWidget {
                   children: [
                     Text(
                       'Dr. Aulya Dini',
-                      style: DokterTextStyles.namaDokterFontStyle,
+                      style: TextStyles.titleBlackboldFontStyle,
                     ),
                     SizedBox(
                       height: 5,
                     ),
                     Text(
                       'Dokter Umum',
-                      style: DokterTextStyles.jabatanDokterFontStyle,
+                      style: TextStyles.blackNormalFontStyle,
                     ),
                     SizedBox(
                       height: 8,
@@ -190,7 +190,7 @@ class ListDokter extends StatelessWidget {
                         ),
                         Text(
                           '4.5',
-                          style: DokterTextStyles.ratingDokterFontStyle,
+                          style: TextStyles.ratingFontStyle,
                         ),
                         Container(
                           height: 12,
@@ -200,7 +200,7 @@ class ListDokter extends StatelessWidget {
                         ),
                         Text(
                           '177 Ulasan',
-                          style: DokterTextStyles.ratingDokterFontStyle,
+                          style: TextStyles.ratingFontStyle,
                         ),
                       ],
                     ),
