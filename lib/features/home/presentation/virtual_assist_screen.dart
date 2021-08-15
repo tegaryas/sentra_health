@@ -47,6 +47,7 @@ class _VirtualAssistScreenState extends State<VirtualAssistScreen> {
         ),
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

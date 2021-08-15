@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sentra_health/constants/styles.dart';
+import 'package:sentra_health/features/authentication/presentation/login_screen.dart';
+import 'package:sentra_health/features/authentication/presentation/number_screen.dart';
 import 'package:sentra_health/nav_menu.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -17,6 +19,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Container(
+            margin: EdgeInsets.only(left: 10),
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            ),
+          ),
+        ),
+      ),
       body: Container(
         height: size.height,
         width: size.width,
@@ -81,20 +99,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Tidak punya akun?',
+                    'Sudah punya akun?',
                     style: GoogleFonts.montserrat(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 5,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginScreen(),
+                        ),
+                      );
+                    },
                     child: Container(
                       child: Text(
-                        'Daftar',
+                        'Login',
                         style: GoogleFonts.montserrat(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
@@ -223,7 +248,7 @@ class RegisterButton extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => NavigationMenu(),
+            builder: (context) => NumberScreen(),
           ),
         );
       },
