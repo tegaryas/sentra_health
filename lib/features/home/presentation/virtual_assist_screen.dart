@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sentra_health/constants/styles.dart';
+import 'package:sentra_health/features/detail_virtual_assist/presentation/bloodpressure_screen.dart';
+import 'package:sentra_health/features/detail_virtual_assist/presentation/bodytemp_screen.dart';
+import 'package:sentra_health/features/detail_virtual_assist/presentation/heartrate_screen.dart';
+import 'package:sentra_health/features/detail_virtual_assist/presentation/respiratory_screen.dart';
 
 class VirtualAssistScreen extends StatefulWidget {
   const VirtualAssistScreen({Key? key}) : super(key: key);
@@ -194,35 +198,75 @@ class _VirtualAssistScreenState extends State<VirtualAssistScreen> {
                 crossAxisCount: 2,
                 crossAxisSpacing: 20,
                 mainAxisSpacing: 20,
-                childAspectRatio: 1 / 1.3,
+                childAspectRatio: 1 / 1.4,
                 children: [
-                  ParameterTubuh(
-                    indicator: 'Detak Jantung',
-                    iconIndicator: FontAwesomeIcons.heartbeat,
-                    angkaIndicator: 102,
-                    satuanIndicator: 'bpm',
-                    keterangan: '🏃 Jangan lupa ber-olahraga',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HeartRateScreen(),
+                        ),
+                      );
+                    },
+                    child: ParameterTubuh(
+                      indicator: 'Detak Jantung',
+                      iconIndicator: FontAwesomeIcons.heartbeat,
+                      angkaIndicator: '102',
+                      satuanIndicator: 'bpm',
+                      keterangan: '🏃 Jangan lupa ber-olahraga',
+                    ),
                   ),
-                  ParameterTubuh(
-                    indicator: 'Waktu Tidur',
-                    iconIndicator: CupertinoIcons.alarm_fill,
-                    angkaIndicator: 2,
-                    satuanIndicator: 'Jam',
-                    keterangan: 'Anda istirahat dengan cukup 😴',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BloodPressureScreen(),
+                        ),
+                      );
+                    },
+                    child: ParameterTubuh(
+                      indicator: 'Tekanan Darah',
+                      iconIndicator: FontAwesomeIcons.water,
+                      angkaIndicator: '144\n/ 71',
+                      satuanIndicator: 'mmhg',
+                      keterangan: 'Tekanan darah anda normal 😴',
+                    ),
                   ),
-                  ParameterTubuh(
-                    indicator: 'SpO₂',
-                    iconIndicator: Icons.bloodtype,
-                    angkaIndicator: 98,
-                    satuanIndicator: '%',
-                    keterangan: 'Wow oxygen dalam darah anda bagus 👍',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RespiratoryScreen(),
+                        ),
+                      );
+                    },
+                    child: ParameterTubuh(
+                      indicator: 'SpO₂',
+                      iconIndicator: Icons.bloodtype,
+                      angkaIndicator: '98',
+                      satuanIndicator: '%',
+                      keterangan: 'Wow oxygen dalam darah anda bagus 👍',
+                    ),
                   ),
-                  ParameterTubuh(
-                    indicator: 'Body Temperature',
-                    iconIndicator: FontAwesomeIcons.thermometerHalf,
-                    angkaIndicator: 78,
-                    satuanIndicator: '°C',
-                    keterangan: 'Suhu anda sedang normal, pertahankan !',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BodyTempScreen(),
+                        ),
+                      );
+                    },
+                    child: ParameterTubuh(
+                      indicator: 'Body Temperature',
+                      iconIndicator: FontAwesomeIcons.thermometerHalf,
+                      angkaIndicator: '78',
+                      satuanIndicator: '°C',
+                      keterangan: 'Suhu anda sedang normal, pertahankan !',
+                    ),
                   )
                 ],
               ),
@@ -409,7 +453,7 @@ class _VirtualAssistScreenState extends State<VirtualAssistScreen> {
 class ParameterTubuh extends StatelessWidget {
   final String indicator;
   final IconData iconIndicator;
-  final int angkaIndicator;
+  final String angkaIndicator;
   final String satuanIndicator;
   final String keterangan;
   const ParameterTubuh({
@@ -480,7 +524,7 @@ class ParameterTubuh extends StatelessWidget {
                 Text(
                   '$angkaIndicator',
                   style: GoogleFonts.montserrat(
-                    fontSize: 30,
+                    fontSize: 28,
                     fontWeight: FontWeight.w600,
                     color: Palletes.PrimaryColor,
                   ),

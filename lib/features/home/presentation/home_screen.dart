@@ -381,7 +381,7 @@ class ParameterTubuh extends StatelessWidget {
                   Text(
                     indicator,
                     style: GoogleFonts.montserrat(
-                      fontSize: 22,
+                      fontSize: 20,
                       fontWeight: FontWeight.w500,
                     ),
                   )

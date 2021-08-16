@@ -115,7 +115,9 @@ class _DetailDokterScreenState extends State<DetailDokterScreen> {
                     padding: EdgeInsets.only(
                       left: 20,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: Icon(
                       Icons.arrow_back_ios,
                       color: Colors.white,
